@@ -14,8 +14,15 @@ namespace kotranacs
             var (_, _, alexisEmail) = alexis;
             Console.WriteLine(alexisEmail);
 
-            var json = JsonSerializer.Serialize(alexis, options: new JsonSerializerOptions() { WriteIndented = true});
+            var json = JsonSerializer.Serialize(alexis, options: new JsonSerializerOptions() { WriteIndented = true });
             Console.WriteLine(json);
+
+            var copied = new Contact("Alexis", "Sanchez", "asanchez@gmail.com");
+            Console.WriteLine($"alexis == copied? {copied == alexis}");
+
+            var rio = alexis with { FirstName = "Rio", Email = "rsanchez@gmail.com" };
+            Console.WriteLine(rio);
+            Console.WriteLine($"alexis == rio? {rio == alexis}");
 
         }
     }
